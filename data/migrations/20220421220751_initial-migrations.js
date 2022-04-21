@@ -45,13 +45,11 @@ exports.up = async function(knex) {
 
 
 exports.down = async function(knex) {
-    return await knex.schema
+     await knex.schema
 
-    .dropTableIfExists('projects')
-
-    .dropTableIfExists('resources')
-
-    .dropTableIfExists('tasks')
-
+   //these need to be in order , from bottom to top 
     .dropTableIfExists('project_resources')
+    .dropTableIfExists('tasks')
+    .dropTableIfExists('resources')
+    .dropTableIfExists('projects')
 };
