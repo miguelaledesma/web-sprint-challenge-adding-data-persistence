@@ -5,7 +5,7 @@ function getResources(){
     return db('resources')
 }
 
-async function createResource(resource) {
+async function insert(resource) {
     const [resource_id] = await db('resources').insert(resource);
     return getResources().where({ resource_id }).first();
 }
@@ -14,5 +14,5 @@ async function createResource(resource) {
 
 module.exports = {
     getResources, 
-    createResource
+    insert
 }
