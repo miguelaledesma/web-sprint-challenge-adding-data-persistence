@@ -20,6 +20,13 @@ router.get('/', (req,res,next) => {
     .catch(next)
 })
 
+router.post('/', (req, res, next) => {
+    Tasks.create(req.body)
+    .then(task => {
+      res.status(200).json(task)
+    })
+    .catch(next);
+});
 
 
 

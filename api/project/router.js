@@ -9,7 +9,7 @@ const router = require('express').Router()
 router.post('/', (req, res, next) => {
     Projects.insert(req.body)
     .then(project => {
-        if (project.project_completed ===0){
+        if (project.project_completed === 0){
             project.project_completed = false;
             res.status(201).json(project);
         }else {
